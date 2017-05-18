@@ -1,4 +1,4 @@
-FROM howardhe/maven_git
+FROM howardhe/maven_git:0.1
 MAINTAINER Howard He "howard.he039@gmail.com"
 
 ENV VERSION=2.1.2
@@ -9,7 +9,7 @@ RUN git clone https://github.com/dangdangdotcom/elastic-job.git \
     && git checkout -b ${VERSION} ${VERSION} \
     && mvn install -DskipTests=true \
     && cd elastic-job-lite/elastic-job-lite-console/target/ \
-    && tar zxvf elastic-job-lite-console-${VERSION}.tar.gz .
+    && tar zxvf elastic-job-lite-console-${VERSION}.tar.gz . \
     && mv elastic-job-lite-console-${VERSION} ${JOB_CONSOLE}
 
 EXPOSE 8080

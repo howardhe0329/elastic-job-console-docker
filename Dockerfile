@@ -7,7 +7,7 @@ ENV JOB_CONSOLE=/elastic-job-console
 RUN git clone https://github.com/dangdangdotcom/elastic-job.git \
     && cd elastic-job \
     && git checkout -b ${VERSION} ${VERSION} \
-    && mvn install -DskipTests=true \
+    && mvn -f elastic-job-lite/elastic-job-lite-console install -DskipTests=true \
     && cd elastic-job-lite/elastic-job-lite-console/target/ \
     && tar zxvf elastic-job-lite-console-${VERSION}.tar.gz . \
     && mv elastic-job-lite-console-${VERSION} ${JOB_CONSOLE}
